@@ -3,7 +3,9 @@
     <h1>Bienvenue sur la liste du programme</h1>
   </div>
   <hr>
-  <ASeason v-for="(saison, key) in saisons" :key="key" :saison="saison" :indexS="key"></ASeason>
+  <section class="monplanning">
+    <ASeason v-for="(saison, key) in saisons" :key="key" :saison="saison" :indexS="key"></ASeason>
+  </section>
 </template>
 
 

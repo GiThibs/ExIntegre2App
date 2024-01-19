@@ -33,5 +33,12 @@ const reset = (key) => {
 </script>
 
 <style scoped>
-
+.saison {
+  border: 1px solid red;
+  padding: 1rem;
+}
+.listsemaines {
+  border: 1px solid purple;
+  padding-inline: 1rem;
+}
 </style>

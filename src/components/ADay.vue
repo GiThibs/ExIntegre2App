@@ -26,5 +26,8 @@ const reset = (key) => {
 </script>
 
 <style scoped>
-
+.listjours-el {
+  border: 1px solid green;
+  padding-inline: 1rem;
+}
 </style>

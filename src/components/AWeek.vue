@@ -30,5 +30,15 @@ const reset = (key) => {
 </script>
 
 <style scoped>
-
+li {
+  list-style: none;
+}
+.listsemaines-el {
+  border: 1px solid blue;
+  padding-inline: 1rem;
+}
+.listjours {
+  border: 1px solid aqua;
+  padding-inline: 1rem;
+}
 </style>
