@@ -1,11 +1,10 @@
-{
-    "saisons": [
-      {
-      "id" : 1,
-      "label" : "Saison",
-      "content" : "Entraînements 0-5 Km",
-      "status" : false,
-      "semaines" : [
+[
+  {
+    "id" : 1,
+    "label" : "Saison",
+    "content" : "Entraînements 0-5 Km",
+    "status" : false,
+    "semaines" : [
         {
           "id" : 1,
           "label" : "Semaine",
@@ -2466,14 +2465,14 @@
               }
           ]
         }
-      ]
-      },
-      {
-      "id" : 2,
-      "label" : "Saison",
-      "content" : "Entraînements 5-10 Km",
-      "status" : false,
-      "semaines" : [
+    ]
+  },
+  {
+    "id" : 2,
+    "label" : "Saison",
+    "content" : "Entraînements 5-10 Km",
+    "status" : false,
+    "semaines" : [
         {
             "id" : 1,
             "label" : "Semaine",
@@ -2636,7 +2635,7 @@
                   }
             ]
         }
-      ]
-      }
     ]
   }
+]
+  
