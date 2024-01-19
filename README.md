@@ -33,3 +33,22 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### Planning Data Sctructure
+
+[
+  1 {semaines:[ 
+                1 {jours:[ 
+                            1 {etapes: [ 
+                                            1 {data}
+                                        ]}
+                          ]}
+                ]},
+  2 {semaines:[ 
+                1 {jours:[ 
+                            1 {etapes: [ 
+                                            1 {data}
+                                        ]}
+                          ]}
+                ]}
+]
