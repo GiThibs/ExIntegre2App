@@ -23,6 +23,9 @@ import { RouterLink, RouterView } from 'vue-router'
 .test {
   background-color: #765432;
   padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-align: center;
 }
 .test > a {
   color: white;
