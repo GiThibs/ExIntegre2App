@@ -31,7 +31,6 @@ import { RouterLink, RouterView } from 'vue-router'
   color: white;
   margin-inline-end: 1rem;
   text-decoration: none;
-  padding-inline: 1rem;
 }
 
 </style>
