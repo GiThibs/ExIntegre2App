@@ -1,26 +1,26 @@
 <template>
   <li class="listsemaines-el">
-    <h1>Semaine 1</h1>
+    <h2>{{ semaine.label }} n°{{ semaine.id }}</h2>
     <ul class="listjours">
-      <li class="listjours-el">Jour 1</li>
-      <li class="listjours-el">Jour 2</li>
-      <li class="listjours-el">Jour 3</li>
-      <li class="listjours-el">Jour 4</li>
-      <ADay></ADay>
+      <ADay v-for="(sceance, key) in semaine.sceances" :key="key" :sceance="sceance" :indexD="key"></ADay>
     </ul>
 </li>
 </template>
 
 <script setup>
 import ADay from '@/components/ADay.vue';
-/*
+
 const props = defineProps({
-  leproduit : {
+  semaine : {
     type : Object,
     default : null
+  },
+  indexW : {
+    type : Number
   }
 })
 
+/*
 const emit = defineEmits(['cancel'])
 const reset = (key) => {
     emit('cancel', key)

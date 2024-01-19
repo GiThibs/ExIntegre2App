@@ -1,19 +1,22 @@
 <template>
   <li class="listjours-el">
-    <h2>Jour 1</h2>
+    <p>{{ sceance.label }} n°{{ sceance.id }}</p>
   </li>
 </template>
 
 <script setup>
 
-/*
 const props = defineProps({
-  leproduit : {
+  sceance : {
     type : Object,
     default : null
+  },
+  indexD : {
+    type : Number
   }
 })
 
+/*
 const emit = defineEmits(['cancel'])
 const reset = (key) => {
     emit('cancel', key)

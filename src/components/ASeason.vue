@@ -1,25 +1,9 @@
 <template>
   <div class="saisons">
     <div class="saison">
-      <h1>Saison 1</h1>
+      <h1>{{ saison.label }} n°{{ saison.id }} : {{ saison.content }}</h1>
       <ul class="listsemaines">
-        <li class="listsemaines-el">Semaine 1</li>
-        <li class="listsemaines-el">Semaine 2</li>
-        <li class="listsemaines-el">Semaine 3</li>
-        <li class="listsemaines-el">Semaine 4</li>
-        <li class="listsemaines-el">Semaine 5</li>
-      </ul>
-    </div>
-    <div class="saison">
-      <h1>Saison 2</h1>
-      <ul class="listsemaines">
-        <AWeek></AWeek>
-      </ul>
-    </div>
-    <div class="saison">
-      <h1>Saison 3</h1>
-      <ul class="listsemaines">
-        <AWeek></AWeek>
+        <AWeek v-for="(semaine, key) in saison.semaines" :key="key" :semaine="semaine" :indexW="key"></AWeek>
       </ul>
     </div>
   </div>
@@ -27,14 +11,19 @@
 
 <script setup>
 import AWeek from '@/components/AWeek.vue';
-/*
+
+
 const props = defineProps({
-  leproduit : {
+  saison : {
     type : Object,
     default : null
+  },
+  indexS : {
+    type : Number
   }
 })
 
+/*
 const emit = defineEmits(['cancel'])
 const reset = (key) => {
     emit('cancel', key)
