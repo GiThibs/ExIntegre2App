@@ -25,5 +25,9 @@ console.log(saisons)
 <style scoped>
 .title {
   padding: 1rem;
+  text-align: center;
+}
+.monplanning {
+  text-align: center;
 }
 </style>
