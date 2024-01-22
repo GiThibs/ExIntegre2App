@@ -2,15 +2,10 @@
 
 <template>
   <div class="nextsession">
-    <h1>Bienvenue sur votre prochaine session</h1><hr>
-    <h3 class="actuel">Vous en êtes ici : Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3>
-    <div class="progressionbar">Barre de progression</div>
-    <section class="progress">
-      <div class="progressionstep">Progression de étapes : 3/13</div>
-      <div class="tempsecoule">Temps écoulé : 5/35 min</div>
-    </section>
-    <div class="steparray"><p>Tableau des étapes</p>
-      <table>
+    <h1>Votre prochaine session</h1><hr>
+    <h3 class="actuel">Vous en êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3><hr>
+    <div class="masession">
+      <table class="steparray">
         <caption>
           Ma sessions du jour
         </caption>
@@ -20,6 +15,11 @@
           <th>{{ step.time }}s</th>
         </tr>
       </table>
+      <section class="progress">
+        <div class="progressionbar">Barre de progression</div>
+        <div class="progressionstep">Progression de étapes : 3/13</div>
+        <div class="tempsecoule">Temps écoulé : 5/35 min</div>
+      </section>
     </div>
     <button class="resetbtn">Recommencer la session ?</button>
   </div>
@@ -73,8 +73,9 @@ table > tr > th {
 .nextsession {
   padding: 1rem;
 }
-.progress {
+.masession {
   display: flex;
+  justify-content: space-between;
 }
 .echauff{
   background-color: red;
