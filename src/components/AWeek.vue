@@ -1,8 +1,8 @@
 <template>
   <li class="listsemaines-el">
-    <h2>{{ semaine.label }} n°{{ semaine.id }}</h2>
+    <h2>{{ semaine.label }} n°{{ semaine.order }}</h2>
     <ul class="listjours">
-      <ADay v-for="(sceance, key) in semaine.sceances" :key="key" :sceance="sceance" :indexD="key"></ADay>
+      <ADay v-for="(sceance, key) in props.semaine.sceances" :key="key" :sceance="sceance" :indexD="key"></ADay>
     </ul>
 </li>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <li class="listjours-el">
-    <p>{{ sceance.label }} n°{{ sceance.id }}</p>
+    <p>{{ props.sceance.label }} n°{{ sceance.order }}</p>
   </li>
 </template>
 

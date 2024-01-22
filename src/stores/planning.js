@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+// import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const usePlanningStore = defineStore({
@@ -10,110 +10,126 @@ export const usePlanningStore = defineStore({
       id : 1,
       label : "Saison",
       content : "Entraînements 0-5 Km",
-      status : false,
+      done : false,
+      order : 1,
       active : false,
       semaines : [
           {
             id : 1,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 1,
             active : false,
             sceances : [
               {
                 id : 1,
                 label : "Scéance",
-                status : false,
+                done : true,
+                order : 1,
                 active : false,
                 etapes : [
                   {
                     id : 1,
                     label : "Échauffements",
                     time : 600,
-                    status : false,
+                    done : true,
+                    order : 1,
                     active : false
                   },
                   {
                     id : 2,
                     label : "Trot",
                     time : 30,
-                    status : false,
+                    done : true,
+                    order : 2,
                     active : false
                   },
                   {
                     id : 3,
                     label : "Marche",
                     time : 60,
-                    status : false,
+                    done : true,
+                    order : 3,
                     active : false
                   },
                   {
                     id : 4,
                     label : "Trot",
                     time : 60,
-                    status : false,
+                    done : true,
+                    order : 4,
                     active : false
                   },
                   {
                     id : 5,
                     label : "Marche",
                     time : 60,
-                    status : false,
+                    done : true,
+                    order : 5,
                     active : false
                   },
                   {
                     id : 6,
                     label : "Trot",
                     time : 90,
-                    status : false,
+                    done : true,
+                    order : 6,
                     active : false
                   },
                   {
                     id : 7,
                     label : "Marche",
                     time : 90,
-                    status : false,
+                    done : true,
+                    order : 7,
                     active : false
                   },
                   {
                     id : 8,
                     label : "Trot",
                     time : 120,
-                    status : false,
+                    done : true,
+                    order : 8,
                     active : false
                   },
                   {
                     id : 9,
                     label : "Marche",
                     time : 120,
-                    status : false,
+                    done : true,
+                    order : 9,
                     active : false
                   },
                   {
                     id : 10,
                     label : "Trot",
                     time : 90,
-                    status : false,
+                    done : true,
+                    order : 10,
                     active : false
                   },
                   {
                     id : 11,
                     label : "Marche",
                     time : 120,
-                    status : false,
+                    done : true,
+                    order : 11,
                     active : false
                   },
                   {
                     id : 12,
                     label : "Trot",
                     time : 60,
-                    status : false,
+                    done : true,
+                    order : 12,
                     active : false
                   },
                   {
                     id : 13,
                     label : "Étirements",
                     time : 300,
-                    status : false,
+                    done : true,
+                    order : 13,
                     active : false
                   }
                 ]
@@ -121,84 +137,96 @@ export const usePlanningStore = defineStore({
               {
                 id : 2,
                 label : "Scéance",
-                status : false,
+                done : false,
+                order : 2,
                 active : false,
                 etapes : [
                   {
                     id : 1,
                     label : "Échauffements",
                     time : 600,
-                    status : false,
+                    done : false,
+                    order : 1,
                     active : false
                   },
                   {
                     id : 2,
                     label : "Trot",
                     time : 60,
-                    status : false,
+                    done : false,
+                    order : 2,
                     active : false
                   },
                   {
                     id : 3,
                     label : "Marche",
                     time : 60,
-                    status : false,
+                    done : false,
+                    order : 3,
                     active : false
                   },
                   {
                     id : 4,
                     label : "Trot",
                     time : 90,
-                    status : false,
+                    done : false,
+                    order : 4,
                     active : false
                   },
                   {
                     id : 5,
                     label : "Marche",
                     time : 90,
-                    status : false,
+                    done : false,
+                    order : 5,
                     active : false
                   },
                   {
                     id : 6,
                     label : "Trot",
                     time : 120,
-                    status : false,
+                    done : false,
+                    order : 6,
                     active : false
                   },
                   {
                     id : 7,
                     label : "Marche",
                     time : 150,
-                    status : false,
+                    done : false,
+                    order : 7,
                     active : false
                   },
                   {
                     id : 8,
                     label : "Trot",
                     time : 120,
-                    status : false,
+                    done : false,
+                    order : 8,
                     active : false
                   },
                   {
                     id : 9,
                     label : "Marche",
                     time : 60,
-                    status : false,
+                    done : false,
+                    order : 9,
                     active : false
                   },
                   {
                     id : 10,
                     label : "Trot",
                     time : 60,
-                    status : false,
+                    done : false,
+                    order : 10,
                     active : false
                   },
                   {
                     id : 11,
                     label : "Étirements",
                     time : 300,
-                    status : false,
+                    done : false,
+                    order : 11,
                     active : false
                   }
                 ]
@@ -206,84 +234,96 @@ export const usePlanningStore = defineStore({
               {
                 id : 3,
                 label : "Scéance",
-                status : false,
+                done : false,
+                order : 3,
                 active : false,
                 etapes : [
                   {
                     id : 1,
                     label : "Échauffements",
                     time : 600,
-                    status : false,
+                    done : false,
+                    order : 1,
                     active : false
                   },
                   {
                     id : 2,
                     label : "Trot",
                     time : 60,
-                    status : false,
+                    done : false,
+                    order : 2,
                     active : false
                   },
                   {
                     id : 3,
                     label : "Marche",
                     time : 60,
-                    status : false,
+                    done : false,
+                    order : 3,
                     active : false
                   },
                   {
                     id : 4,
                     label : "Trot",
                     time : 120,
-                    status : false,
+                    done : false,
+                    order : 4,
                     active : false
                   },
                   {
                     id : 5,
                     label : "Marche",
                     time : 120,
-                    status : false,
+                    done : false,
+                    order : 5,
                     active : false
                   },
                   {
                     id : 6,
                     label : "Trot",
                     time : 150,
-                    status : false,
+                    done : false,
+                    order : 6,
                     active : false
                   },
                   {
                     id : 7,
                     label : "Marche",
                     time : 180,
-                    status : false,
+                    done : false,
+                    order : 7,
                     active : false
                   },
                   {
                     id : 8,
                     label : "Trot",
                     time : 150,
-                    status : false,
+                    done : false,
+                    order : 8,
                     active : false
                   },
                   {
                     id : 9,
                     label : "Marche",
                     time : 150,
-                    status : false,
+                    done : false,
+                    order : 9,
                     active : false
                   },
                   {
                     id : 10,
                     label : "Trot",
                     time : 60,
-                    status : false,
+                    done : false,
+                    order : 10,
                     active : false
                   },
                   {
                     id : 11,
                     label : "Étirements",
                     time : 300,
-                    status : false,
+                    done : false,
+                    order : 11,
                     active : false
                   }
                 ]
@@ -293,104 +333,119 @@ export const usePlanningStore = defineStore({
           {
             id : 2,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 2,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 150,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 150,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 150,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Marche",
                       time : 150,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     },
                     {
                       id : 12,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 12,
                       active : false
                     },
                     {
                       id : 13,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 13,
                       active : false
                     }
                   ]
@@ -398,98 +453,112 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 2,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     },
                     {
                       id : 12,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 12,
                       active : false
                     },
                     {
                       id : 13,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 13,
                       active : false
                     }
                   ]
@@ -497,98 +566,112 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     },
                     {
                       id : 12,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 12,
                       active : false
                     },
                     {
                       id : 13,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 13,
                       active : false
                     }
                   ]
@@ -598,104 +681,119 @@ export const usePlanningStore = defineStore({
           {
             id : 3,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 3,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 30,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     },
                     {
                       id : 12,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 12,
                       active : false
                     },
                     {
                       id : 13,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 13,
                       active : false
                     }
                   ]
@@ -703,98 +801,112 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 30,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 90,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 150,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     },
                     {
                       id : 12,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 12,
                       active : false
                     },
                     {
                       id : 13,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 13,
                       active : false
                     }
                   ]
@@ -802,98 +914,112 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 30,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 90,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 150,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 150,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     },
                     {
                       id : 12,
                       label : "Trot",
                       time : 90,
-                      status : false,
+                      done : false,
+                      order : 12,
                       active : false
                     },
                     {
                       id : 13,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 13,
                       active : false
                     }
                   ]
@@ -903,104 +1029,119 @@ export const usePlanningStore = defineStore({
           {
             id : 4,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 4,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 30,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     },
                     {
                       id : 12,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 12,
                       active : false
                     },
                     {
                       id : 13,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 13,
                       active : false
                     }
                   ]
@@ -1008,98 +1149,112 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 2,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 30,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 30,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     },
                     {
                       id : 12,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 12,
                       active : false
                     },
                     {
                       id : 13,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 13,
                       active : false
                     }
                   ]
@@ -1107,98 +1262,112 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 30,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Marche",
                       time : 30,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     },
                     {
                       id : 12,
                       label : "Trot",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 12,
                       active : false
                     },
                     {
                       id : 13,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 13,
                       active : false
                     }
                   ]
@@ -1208,90 +1377,103 @@ export const usePlanningStore = defineStore({
           {
             id : 5,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 5,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 30,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     }
                   ]
@@ -1299,84 +1481,96 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 2,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     }
                   ]
@@ -1384,84 +1578,96 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 30,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 360,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     }
                   ]
@@ -1471,90 +1677,103 @@ export const usePlanningStore = defineStore({
           {
             id : 6,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 6,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     }
                   ]
@@ -1562,84 +1781,96 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 2,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 360,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     }
                   ]
@@ -1647,84 +1878,96 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 360,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 420,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     }
                   ]
@@ -1734,76 +1977,87 @@ export const usePlanningStore = defineStore({
           {
             id : 7,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 7,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 360,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 420,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 540,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     }
                   ]
@@ -1811,70 +2065,80 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 2,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 480,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     }
                   ]
@@ -1882,84 +2146,96 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     },
                     {
                       id : 10,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 10,
                       active : false
                     },
                     {
                       id : 11,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 11,
                       active : false
                     }
                   ]
@@ -1969,76 +2245,87 @@ export const usePlanningStore = defineStore({
           {
             id : 8,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 8,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 480,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     }
                   ]
@@ -2046,70 +2333,80 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 2,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 360,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     }
                   ]
@@ -2117,70 +2414,80 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 480,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 55,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 480,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 480,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     }
                   ]
@@ -2190,76 +2497,87 @@ export const usePlanningStore = defineStore({
           {
             id : 9,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 9,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 480,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 480,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 480,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     }
                   ]
@@ -2267,70 +2585,80 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 2,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 480,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     }
                   ]
@@ -2338,70 +2666,80 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     },
                     {
                       id : 8,
                       label : "Trot",
                       time : 720,
-                      status : false,
+                      done : false,
+                      order : 8,
                       active : false
                     },
                     {
                       id : 9,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 9,
                       active : false
                     }
                   ]
@@ -2411,62 +2749,71 @@ export const usePlanningStore = defineStore({
           {
             id : 10,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 10,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 720,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 840,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     }
                   ]
@@ -2474,56 +2821,64 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 2,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 720,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 840,
-                      status : false,
+                      done : false,
+                      rder : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     }
                   ]
@@ -2531,56 +2886,64 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 720,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 840,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
-                      id : 9,
+                      id : 7,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     }
                   ]
@@ -2590,62 +2953,71 @@ export const usePlanningStore = defineStore({
           {
             id : 11,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 11,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 960,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 960,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     }
                   ]
@@ -2653,56 +3025,64 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 2,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 840,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 60,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 240,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     },
                     {
                       id : 6,
                       label : "Trot",
                       time : 1080,
-                      status : false,
+                      done : false,
+                      order : 6,
                       active : false
                     },
                     {
                       id : 7,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 7,
                       active : false
                     }
                   ]
@@ -2710,42 +3090,48 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 960,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 180,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 1080,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     }
                   ]
@@ -2755,48 +3141,55 @@ export const usePlanningStore = defineStore({
           {
             id : 12,
             label : "Semaine",
-            status : false,
+            done : false,
+            order : 12,
             active : false,
             sceances : [
                 {
                   id : 1,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 1,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 1500,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     }
                   ]
@@ -2804,42 +3197,48 @@ export const usePlanningStore = defineStore({
                 {
                   id : 2,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 2,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Marche",
                       time : 120,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     },
                     {
                       id : 4,
                       label : "Trot",
                       time : 1800,
-                      status : false,
+                      done : false,
+                      order : 4,
                       active : false
                     },
                     {
                       id : 5,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 5,
                       active : false
                     }
                   ]
@@ -2847,28 +3246,32 @@ export const usePlanningStore = defineStore({
                 {
                   id : 3,
                   label : "Scéance",
-                  status : false,
+                  done : false,
+                  order : 3,
                   active : false,
                   etapes : [
                     {
                       id : 1,
                       label : "Échauffements",
                       time : 600,
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false
                     },
                     {
                       id : 2,
                       label : "Trot",
                       time : 2400,
-                      status : false,
+                      done : false,
+                      order : 2,
                       active : false
                     },
                     {
                       id : 3,
                       label : "Étirements",
                       time : 300,
-                      status : false,
+                      done : false,
+                      order : 3,
                       active : false
                     }
                   ]
@@ -2881,191 +3284,62 @@ export const usePlanningStore = defineStore({
       id : 2,
       label : "Saison",
       "content" : "Entraînements 5-10 Km",
-      status : false,
+      done : false,
+      order : 2,
       active : false,
       "semaines" : [
           {
               id : 1,
               label : "Semaine",
-              status : false,
+              done : false,
+              order : 1,
               active : false,
               sceances : [
                   {
                       id : 1,
                       label : "Scéance",
-                      status : false,
+                      done : false,
+                      order : 1,
                       active : false,
                       etapes : [
                         {
                           id : 1,
                           label : "Échauffements",
                           time : 600,
-                          status : false,
+                          done : false,
+                          order : 1,
                           active : false
                         },
                         {
                           id : 2,
                           label : "Trot",
                           time : 600,
-                          status : false,
+                          done : false,
+                          order : 2,
                           active : false
                         },
                         {
                           id : 3,
                           label : "Marche",
                           time : 120,
-                          status : false,
+                          done : false,
+                          order : 3,
                           active : false
                         },
                         {
                           id : 4,
                           label : "Trot",
                           time : 1500,
-                          status : false,
+                          done : false,
+                          order : 4,
                           active : false
                         },
                         {
                           id : 5,
                           label : "Étirements",
                           time : 300,
-                          status : false,
-                          active : false
-                        }
-                      ]
-                    },
-                    {
-                      id : 2,
-                      label : "Scéance",
-                      status : false,
-                      active : false,
-                      etapes : [
-                        {
-                          id : 1,
-                          label : "Échauffements",
-                          time : 600,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 2,
-                          label : "Trot",
-                          time : 300,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 3,
-                          label : "Marche",
-                          time : 120,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 4,
-                          label : "Trot",
-                          time : 1800,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 5,
-                          label : "Étirements",
-                          time : 300,
-                          status : false,
-                          active : false
-                        }
-                      ]
-                    }
-              ]
-          },
-          {
-              id : 2,
-              label : "Semaine",
-              status : false,
-              active : false,
-              sceances : [
-                  {
-                      id : 1,
-                      label : "Scéance",
-                      status : false,
-                      active : false,
-                      etapes : [
-                        {
-                          id : 1,
-                          label : "Échauffements",
-                          time : 600,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 2,
-                          label : "Trot",
-                          time : 600,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 3,
-                          label : "Marche",
-                          time : 120,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 4,
-                          label : "Trot",
-                          time : 1500,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 5,
-                          label : "Étirements",
-                          time : 300,
-                          status : false,
-                          active : false
-                        }
-                      ]
-                    },
-                    {
-                      id : 2,
-                      label : "Scéance",
-                      status : false,
-                      active : false,
-                      etapes : [
-                        {
-                          id : 1,
-                          label : "Échauffements",
-                          time : 600,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 2,
-                          label : "Trot",
-                          time : 300,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 3,
-                          label : "Marche",
-                          time : 120,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 4,
-                          label : "Trot",
-                          time : 1800,
-                          status : false,
-                          active : false
-                        },
-                        {
-                          id : 5,
-                          label : "Étirements",
-                          time : 300,
-                          status : false,
+                          done : false,
+                          order : 5,
                           active : false
                         }
                       ]

@@ -1,9 +1,9 @@
 <template>
   <div class="saisons">
     <div class="saison">
-      <h1>{{ saison.label }} n°{{ saison.id }} : {{ saison.content }}</h1>
+      <h1>{{ saison.label }} n°{{ saison.order }} : {{ saison.content }}</h1>
       <ul class="listsemaines">
-        <AWeek v-for="(semaine, key) in saison.semaines" :key="key" :semaine="semaine" :indexW="key"></AWeek>
+        <AWeek class="" v-for="(semaine, key) in props.saison.semaines" :key="key" :semaine="semaine" :indexW="key"></AWeek>
       </ul>
     </div>
   </div>
