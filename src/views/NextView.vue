@@ -13,10 +13,10 @@
         <caption>
           Ma sessions du jour
         </caption>
-        <tr v-for="(step, key) in steps" :key="key" :index="key">
+        <tr class="row" v-for="(step, key) in steps" :key="key" :index="key">
           <th>Etape n°{{ step.order }}</th>
           <th class="label">{{ step.label }}</th>
-          <th>{{ step.time }}s</th>
+          <th>{{ step.time / 60 }} min</th>
         </tr>
       </table>
     <button class="resetbtn">Recommencer la session ?</button>
@@ -62,6 +62,9 @@ onMounted(() => {
 
 <style scoped>
 
+table {
+  border-spacing: 0;
+}
 table > tr > th {
   padding: .3rem;
 }
@@ -78,13 +81,23 @@ table > tr > th {
   justify-content: space-between;
 }
 .echauff{
-  background-color: red;
+  background-color: gold;
 }
 .marche {
   background-color: aqua;
 }
 .trot {
   background-color: green;
+}
+
+.resetbtn {
+  padding: 1rem;
+  background-color: red;
+  color: white;
+  border: none;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 1rem;
 }
 
 </style>

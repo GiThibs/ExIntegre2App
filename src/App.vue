@@ -12,9 +12,7 @@ let nextDay = null
 
 const findNextSess = () => {
   nextSaison = saisons.find((el) => el.done == false)
-
   nextWeek = nextSaison.semaines.find((el) => el.done == false)
-
   nextDay = nextWeek.sceances.find((el) => el.done == false)
 }
 findNextSess()
