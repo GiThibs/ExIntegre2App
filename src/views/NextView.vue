@@ -4,7 +4,11 @@
   <div class="nextsession">
     <h1>Votre prochaine session</h1><hr>
     <h3 class="actuel">Vous en êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3><hr>
-    <div class="masession">
+    <section class="progress">
+      <div class="progressionbar">Barre de progression</div>
+      <div class="progressionstep">Progression de étapes : 3/{{ steps.length }}</div>
+      <div class="tempsecoule">Temps écoulé : 5/35 min</div>
+    </section>
       <table class="steparray">
         <caption>
           Ma sessions du jour
@@ -15,12 +19,6 @@
           <th>{{ step.time }}s</th>
         </tr>
       </table>
-      <section class="progress">
-        <div class="progressionbar">Barre de progression</div>
-        <div class="progressionstep">Progression de étapes : 3/13</div>
-        <div class="tempsecoule">Temps écoulé : 5/35 min</div>
-      </section>
-    </div>
     <button class="resetbtn">Recommencer la session ?</button>
   </div>
 </template>
@@ -72,8 +70,10 @@ table > tr > th {
 }
 .nextsession {
   padding: 1rem;
+  display: grid;
+  text-align: center;
 }
-.masession {
+.progress {
   display: flex;
   justify-content: space-between;
 }
