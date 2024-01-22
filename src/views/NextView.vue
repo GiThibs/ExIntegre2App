@@ -7,7 +7,10 @@
     <section class="progress">
       <label for="progression">Progression : </label>
       <progress id="progression" max="" value=""></progress>
-      <div class="tempsecoule">Temps écoulé : 5/{{ totalTimeMin }} min</div>
+    </section>
+    <section class="progress">  
+      <div class="tempsecoule">Temps écoulé :</div>
+      <div><span class="tempsecouleval">0</span>/{{ totalTimeMin }} min</div>
     </section>
     <div class="btns">
       <button class="startbtn">Démarrer la session ?</button>
@@ -88,6 +91,7 @@ onMounted(() => {
   const resetBtn = document.querySelector('.resetbtn')
 
   const progressBar = document.getElementById('progression')
+  const tempsEcoule = document.querySelector('.tempsecouleval')
 
 
   let intervalStarted = null
@@ -103,11 +107,15 @@ onMounted(() => {
           intervalStarted = setInterval(() => {
             timer.value++
             progressBar.value = timer.value
+            //tempsEcoule.innerHTML = timer.value / 60
+            tempsEcoule.innerHTML = Math.round((timer.value / 60) * 100) / 100
             console.log(timer.value)
             if (timer.value == 5) {
               console.log('Ca fait 5s')
               mp3Trotter.play();
               mp3Trotter.loop = false;
+            } else if (timer.value == totalTime.value) {
+              activeSession.done = true
             }
           }, 1000);
           }
@@ -116,12 +124,13 @@ onMounted(() => {
     if(confirm('Voulez vous vraiment arrêter la session ? Vous devrez la recommencer du début !')) {
       stopBtn.classList.add('hidden')
       startBtn.classList.remove('hidden')
-      if (intervalStarted) {
         clearInterval(intervalStarted)
         intervalStarted = null
         timer.value = 0
+        tempsEcoule.innerHTML = 0
+        progressBar.value = ""
+        progressBar.max = ""
         console.log("session arrêtée")
-      }
     }
     })
   resetBtn.addEventListener('click', e => {
@@ -158,8 +167,7 @@ table > tr > th {
   text-align: center;
 }
 .progress {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   padding-block: 1rem;
   justify-content: space-between;
 }
