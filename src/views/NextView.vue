@@ -5,7 +5,8 @@
     <h1>Votre prochaine session</h1><hr>
     <h3 class="actuel">Vous en êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3><hr>
     <section class="progress">
-      <div class="progressionbar">Barre de progression</div>
+      <label for="progression">Progression : </label>
+      <progress id="progression" max="" value=""></progress>
       <div class="tempsecoule">Temps écoulé : 5/{{ totalTimeMin }} min</div>
     </section>
     <div class="btns">
@@ -24,6 +25,7 @@
           <th class="timeStep">{{ step.time / 60 }}</th>
         </tr>
       </table>
+      <!--<audio controls :src="srcSound"></audio>-->
     <button class="resetbtn">Recommencer la session ?</button>
   </div>
 </template>
@@ -49,6 +51,15 @@ const steps = activeSession.etapes
 
 let totalTimeMin = ref(0)
 let totalTime = ref(0)
+
+
+const basePath = window.location.href.replace(window.location.pathname, '');
+// const srcSound = basePath + '/sounds/marches.mp3'
+
+const mp3Echauffer = new Audio(basePath+'/sounds/echauffement.mp3')
+const mp3Etirer = new Audio(basePath+'/sounds/etirements.mp3')
+const mp3Trotter = new Audio(basePath+'/sounds/trottes.mp3')
+const mp3Marcher = new Audio(basePath+'/sounds/marches.mp3')
 
 onMounted(() => {
   const labels = document.querySelectorAll('.label')
@@ -76,19 +87,27 @@ onMounted(() => {
   const stopBtn = document.querySelector('.stopbtn')
   const resetBtn = document.querySelector('.resetbtn')
 
+  const progressBar = document.getElementById('progression')
+
+
   let intervalStarted = null
   const timer = ref(0)
     
   startBtn.addEventListener('click', e => {
+    mp3Trotter.play()
     startBtn.classList.add('hidden')
     stopBtn.classList.remove('hidden')
     if (!intervalStarted) {
           console.log("session démarrée.")
+          progressBar.max = totalTime.value
           intervalStarted = setInterval(() => {
             timer.value++
+            progressBar.value = timer.value
             console.log(timer.value)
             if (timer.value == 5) {
               console.log('Ca fait 5s')
+              mp3Trotter.play();
+              mp3Trotter.loop = false;
             }
           }, 1000);
           }
@@ -139,7 +158,8 @@ table > tr > th {
   text-align: center;
 }
 .progress {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   padding-block: 1rem;
   justify-content: space-between;
 }
