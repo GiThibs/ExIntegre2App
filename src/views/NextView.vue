@@ -29,9 +29,10 @@
       </table>
       <!--<audio controls :src="srcSound"></audio>-->
   </div>
-  <div class="sessiondone hidden">
-    <h2>Session déjà terminée</h2>
+  <div class="sessiondone ">
+    <h2>Session terminée !</h2>
     <p>Vous avez courru pendant {{totalTimeMin}} minutes !</p>
+    <p class="emoji">🏁 🏃 </p>
   </div>
     <button class="resetbtn">Recommencer la session ?</button>
 </template>
@@ -215,6 +216,13 @@ table > tr > th {
   padding-inline: 1rem;
   display: grid;
   text-align: center;
+}
+.sessiondone {
+padding: 1rem;
+text-align: center;
+}
+.emoji {
+  font-size: 2rem;
 }
 .progress {
   display: flex;
