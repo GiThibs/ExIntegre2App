@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { usePlanningStore } from '@/stores/planning'
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 const planningStore = usePlanningStore()
 const saisons = planningStore.planning
@@ -18,13 +18,10 @@ const findNextSess = () => {
 findNextSess()
 
 const routes = ref([
-        { id: 2, path: '/saison', label: 'Mes saisons' },
+        { id: 1, path: '/' + nextSaison.order + '/' + nextWeek.order + '/' + nextDay.order, label: "Prochaine Session" },
+        { id: 2, path: '/', label: 'Mes saisons' },
         { id: 3, path: '/help', label: "Besoin d'aide ?" },
       ])
-
-onMounted(() => {
-  routes.value.unshift({ id: 1, path: '/' + nextSaison.order + '/' + nextWeek.order + '/' + nextDay.order, label: "Prochaine Session" })
-})
 
 </script>
 

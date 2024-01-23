@@ -137,7 +137,7 @@ export const usePlanningStore = defineStore({
               {
                 id : 2,
                 label : "Scéance",
-                done : false,
+                done : true,
                 order : 2,
                 active : false,
                 etapes : [

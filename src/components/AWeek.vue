@@ -2,7 +2,7 @@
   <li class="listsemaines-el">
     <h2>{{ semaine.label }} n°{{ semaine.order }}</h2>
     <ul class="listjours">
-      <ADay v-for="(sceance, key) in props.semaine.sceances" :key="key" :sceance="sceance" :indexD="key"></ADay>
+      <ADay v-for="(sceance, key) in props.semaine.sceances" :key="key" :sceance="sceance" :orderD="sceance.order" :orderS="orderS" :orderW="orderW"></ADay>
     </ul>
 </li>
 </template>
@@ -15,8 +15,13 @@ const props = defineProps({
     type : Object,
     default : null
   },
-  indexW : {
-    type : Number
+  orderW : {
+    type : Number,
+    default : null
+  },
+  orderS : {
+    type : Number,
+    default : null
   }
 })
 
@@ -35,10 +40,8 @@ li {
 }
 .listsemaines-el {
   border: 1px solid blue;
-  padding-inline: 1rem;
 }
 .listjours {
   border: 1px solid aqua;
-  padding-inline: 1rem;
 }
 </style>

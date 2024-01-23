@@ -4,7 +4,7 @@
   </div>
   <hr>
   <section class="monplanning">
-    <ASeason v-for="(saison, key) in saisons" :key="key" :saison="saison" :indexS="key"></ASeason>
+    <ASeason v-for="(saison, key) in saisons" :key="key" :saison="saison" :orderS="saison.order"></ASeason>
   </section>
 </template>
 
@@ -15,7 +15,6 @@ import { usePlanningStore } from '@/stores/planning'
 
 const planningStore = usePlanningStore()
 const saisons = planningStore.planning
-console.log(saisons)
 
 
 
