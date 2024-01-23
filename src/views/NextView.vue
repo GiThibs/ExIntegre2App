@@ -101,6 +101,7 @@ onMounted(() => {
     sessionDone.classList.remove('hidden')
     } else if(activeSession.done == false) {
     nextSession.classList.remove('hidden')
+    startBtn.classList.remove('hidden')
     sessionDone.classList.add('hidden')
     }
   }
