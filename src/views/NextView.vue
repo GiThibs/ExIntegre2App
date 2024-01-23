@@ -25,7 +25,7 @@
         <tr class="row" v-for="(step, key) in steps" :key="key" :index="key">
           <th>Etape n°{{ step.order }}</th>
           <th class="label">{{ step.label }}</th>
-          <th class="timeStep">{{ step.time / 60 }}</th>
+          <th class="timeStep">{{ Math.round((step.time / 60) * 100) / 100 }}</th>
         </tr>
       </table>
       <!--<audio controls :src="srcSound"></audio>-->
@@ -40,31 +40,29 @@ import { usePlanningStore } from '@/stores/planning'
 import { onMounted, ref } from 'vue';
 
 const route = useRoute()
+const planningStore = usePlanningStore()
+const saisons = planningStore.planning
 
 const saison = route.params.nextSaisonOrder
 const week = route.params.nextWeekOrder
 const day = route.params.nextDayOrder
 
-const planningStore = usePlanningStore()
-const saisons = planningStore.planning
-
 const activeSession = saisons.find((el) => el.order == saison).semaines.find((el) => el.order == week).sceances.find((el) => el.order == day)
-
 const steps = activeSession.etapes
 
 let totalTimeMin = ref(0)
 let totalTime = ref(0)
 
-
 const basePath = window.location.href.replace(window.location.pathname, '');
 // const srcSound = basePath + '/sounds/marches.mp3'
-
-const mp3Echauffer = new Audio(basePath+'/sounds/echauffement.mp3')
-const mp3Etirer = new Audio(basePath+'/sounds/etirements.mp3')
-const mp3Trotter = new Audio(basePath+'/sounds/trottes.mp3')
-const mp3Marcher = new Audio(basePath+'/sounds/marches.mp3')
+const mp3Echauffements = new Audio(basePath+'/sounds/echauffement.mp3')
+const mp3Etirements = new Audio(basePath+'/sounds/etirements.mp3')
+const mp3Trottes = new Audio(basePath+'/sounds/trottes.mp3')
+const mp3Marches = new Audio(basePath+'/sounds/marches.mp3')
 
 onMounted(() => {
+
+  //Background color from class by innerHTML Txt
   const labels = document.querySelectorAll('.label')
   labels.forEach((el) => {
     if (el.innerHTML == 'Échauffements') {
@@ -77,62 +75,93 @@ onMounted(() => {
       el.classList.add('echauff')
     }
   })
-
+  //Get session total time
   const allTime = document.querySelectorAll('.timeStep')
   allTime.forEach((el) => {
     totalTimeMin.value = totalTimeMin.value + Number.parseFloat(el.innerHTML)
   })
-
-  totalTime.value = totalTimeMin.value * 60
-  console.log(totalTime.value)
-
+  totalTime.value = totalTimeMin.value * 60 // Temps total en secondes
+  //Cible Eléments HTML
   const startBtn = document.querySelector('.startbtn')
   const stopBtn = document.querySelector('.stopbtn')
   const resetBtn = document.querySelector('.resetbtn')
-
   const progressBar = document.getElementById('progression')
   const tempsEcoule = document.querySelector('.tempsecouleval')
-
-
+  //SetInterval
   let intervalStarted = null
   const timer = ref(0)
-    
+  
+  steps[0].time = 7
+  steps[1].time = 2
+  steps[2].time = 2
+  steps[3].time = 3
+  steps[4].time = 2
+  steps[5].time = 3
+  steps[6].time = 2
+  steps[7].time = 3
+  steps[8].time = 2
+  steps[9].time = 3
+  steps[10].time = 2
+
+  //Start du timer de la session
   startBtn.addEventListener('click', e => {
-    mp3Trotter.play()
     startBtn.classList.add('hidden')
     stopBtn.classList.remove('hidden')
-    if (!intervalStarted) {
+    if (!intervalStarted) { //Si session non démarrée
           console.log("session démarrée.")
-          progressBar.max = totalTime.value
+          progressBar.max = totalTime.value  //Valeur max de la barre de progression
+
+          mp3Echauffements.play()
+
           intervalStarted = setInterval(() => {
-            timer.value++
-            progressBar.value = timer.value
-            //tempsEcoule.innerHTML = timer.value / 60
-            tempsEcoule.innerHTML = Math.round((timer.value / 60) * 100) / 100
+            timer.value++ // Incrémente le timer de 1 chaque sec
+            progressBar.value = timer.value // La value de la progressBar = value timer
+            tempsEcoule.innerHTML = Math.round((timer.value / 60) * 100) / 100 //Temps en min arrondi
             console.log(timer.value)
-            if (timer.value == 5) {
-              console.log('Ca fait 5s')
-              mp3Trotter.play();
-              mp3Trotter.loop = false;
-            } else if (timer.value == totalTime.value) {
-              activeSession.done = true
+            let totalElapsedTime = 0;
+            for (let i = 0; i < steps.length; i++) {
+              totalElapsedTime += steps[i].time;
+              if (timer.value === totalElapsedTime) {
+                if(i != steps.length - 1) {
+                  if(steps[i+1].label == "Trot") {
+                    console.log(steps[i+1].label);
+                    mp3Trottes.play(); // Joue un son
+                  } else if(steps[i+1].label == "Marche") {
+                    console.log(steps[i+1].label);
+                    mp3Marches.play(); // Joue un son
+                  } else if(steps[i+1].label == "Étirements") {
+                    console.log(steps[i+1].label);
+                    mp3Etirements.play(); // Joue un son
+                  }
+                }
+                if (i === steps.length - 1) { // Si c'est la dernière étape
+                  clearInterval(intervalStarted); // Arrête le SetInterval
+                  intervalStarted = null;
+                  console.log("session terminée");
+                  activeSession.done = true; // Valide la session
+                  stopBtn.classList.add('hidden');
+                }
+                break; // Sort de la boucle dès qu'une étape est atteinte
+              }
             }
           }, 1000);
           }
     })
+  //Stop du timer de la session
   stopBtn.addEventListener('click', e => {
     if(confirm('Voulez vous vraiment arrêter la session ? Vous devrez la recommencer du début !')) {
       stopBtn.classList.add('hidden')
       startBtn.classList.remove('hidden')
-        clearInterval(intervalStarted)
+        clearInterval(intervalStarted) // Arrête le SetInterval
         intervalStarted = null
-        timer.value = 0
+        timer.value = 0  //Remet les valeurs à 0
         tempsEcoule.innerHTML = 0
         progressBar.value = ""
         progressBar.max = ""
         console.log("session arrêtée")
     }
     })
+  //Reset de la session
   resetBtn.addEventListener('click', e => {
     if (activeSession.done) {
       if (confirm('Voulez vous vraiment réinitialiser cette session ? Elle ne sera plus considérée comme terminée !')) {
