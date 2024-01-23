@@ -29,7 +29,7 @@
       </table>
       <!--<audio controls :src="srcSound"></audio>-->
   </div>
-  <div class="sessiondone ">
+  <div class="sessiondone hidden">
     <h2>Session terminée !</h2>
     <p>Vous avez courru pendant {{totalTimeMin}} minutes !</p>
     <p class="emoji">🏁 🏃 </p>
