@@ -35,9 +35,13 @@ const reset = (key) => {
 
 <style scoped>
 .saison {
-  border: 1px solid red;
+  background-color: #654321;
+}
+.saison h1 {
+  color: white;
 }
 .listsemaines {
-  border: 1px solid purple;
+  background-color: #ffffff01;
+  padding-block: .5rem;
 }
 </style>

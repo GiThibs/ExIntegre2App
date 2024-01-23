@@ -39,9 +39,9 @@ li {
   list-style: none;
 }
 .listsemaines-el {
-  border: 1px solid blue;
+  background-color: #ffffff22;
 }
 .listjours {
-  border: 1px solid aqua;
+  background-color: #ffffff22;
 }
 </style>
