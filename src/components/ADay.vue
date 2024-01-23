@@ -1,5 +1,5 @@
 <template>
-  <li class="listjours-el " ref="listItemRef">
+  <li class="listjours-el " :class="{'done':sceance.done,'nextone':nextOne}" ref="listItemRef">
     <router-link :to="{path: '/' + orderS + '/' + orderW + '/' + orderD}">{{ props.sceance.label }} n°{{ sceance.order }}</router-link>
   </li>
 </template>
@@ -50,21 +50,10 @@ const findNextSess = () => {
   nextWeek = nextSaison.semaines.find((el) => el.done == false)
   nextDay = nextWeek.sceances.find((el) => el.done == false)
   nextSess.value = { nextS: nextSaison.order, nextW: nextWeek.order, nextD: nextDay.order }
-  console.log(nextSess.value)
-  console.log(props.orderS + "-" + props.orderW + "-" + props.orderD)
 }
 
 onMounted(() => {
   findNextSess()
-
-  if (props.sceance.done) {
-    listItemRef.value.classList.add('done');
-  }
-
-  console.log(nextOne.value);
-  if (nextOne.value) {
-    listItemRef.value.classList.add('nextone');
-  }
 })
 </script>
 

@@ -9,7 +9,7 @@
     </section>
     <section class="progress">  
       <div class="tempsecoule">Temps écoulé :</div>
-      <div><span class="tempsecouleval">0</span>/{{ totalTimeMin }} min</div>
+      <div><span class="tempsecouleval">0</span>/{{ totalTimeMin.toFixed(2) }} min</div>
     </section>
     <div class="btns">
       <button class="startbtn">Démarrer la session ?</button>
@@ -109,7 +109,7 @@ onMounted(() => {
   //SetInterval
   let intervalStarted = null
   const timer = ref(0)
-  
+/*
   steps[0].time = 7
   steps[1].time = 2
   steps[2].time = 2
@@ -121,7 +121,7 @@ onMounted(() => {
   steps[8].time = 2
   steps[9].time = 3
   steps[10].time = 2
-
+*/
   //Start du timer de la session
   startBtn.addEventListener('click', e => {
     startBtn.classList.add('hidden')
