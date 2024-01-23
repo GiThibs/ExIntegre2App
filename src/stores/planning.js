@@ -802,7 +802,7 @@ export const usePlanningStore = defineStore({
                   id : 2,
                   label : "Scéance",
                   done : false,
-                  order : 3,
+                  order : 2,
                   active : false,
                   etapes : [
                     {

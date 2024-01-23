@@ -2,8 +2,7 @@
 
 <template>
   <div class="nextsession">
-    <h1>Votre prochaine session</h1><hr>
-    <h3 class="actuel">Vous en êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3><hr>
+    <h2 class="actuel">Vous en êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h2><hr>
     <section class="progress">
       <label for="progression">Progression : </label>
       <progress id="progression" max="" value=""></progress>
@@ -29,8 +28,12 @@
         </tr>
       </table>
       <!--<audio controls :src="srcSound"></audio>-->
-    <button class="resetbtn">Recommencer la session ?</button>
   </div>
+  <div class="sessiondone hidden">
+    <h2>Session déjà terminée</h2>
+    <p>Vous avez courru pendant {{totalTimeMin}} minutes !</p>
+  </div>
+    <button class="resetbtn">Recommencer la session ?</button>
 </template>
 
 
@@ -59,6 +62,7 @@ const mp3Echauffements = new Audio(basePath+'/sounds/echauffement.mp3')
 const mp3Etirements = new Audio(basePath+'/sounds/etirements.mp3')
 const mp3Trottes = new Audio(basePath+'/sounds/trottes.mp3')
 const mp3Marches = new Audio(basePath+'/sounds/marches.mp3')
+const mp3Fin = new Audio(basePath+'/sounds/fin.mp3')
 
 onMounted(() => {
 
@@ -87,6 +91,19 @@ onMounted(() => {
   const resetBtn = document.querySelector('.resetbtn')
   const progressBar = document.getElementById('progression')
   const tempsEcoule = document.querySelector('.tempsecouleval')
+  const nextSession = document.querySelector('.nextsession')
+  const sessionDone = document.querySelector('.sessiondone')
+
+  const checkActiveDone = () => {
+    if(activeSession.done == true) {
+    nextSession.classList.add('hidden')
+    sessionDone.classList.remove('hidden')
+    } else if(activeSession.done == false) {
+    nextSession.classList.remove('hidden')
+    sessionDone.classList.add('hidden')
+    }
+  }
+  checkActiveDone()
   //SetInterval
   let intervalStarted = null
   const timer = ref(0)
@@ -135,11 +152,13 @@ onMounted(() => {
                   }
                 }
                 if (i === steps.length - 1) { // Si c'est la dernière étape
+                  mp3Fin.play()
                   clearInterval(intervalStarted); // Arrête le SetInterval
                   intervalStarted = null;
                   console.log("session terminée");
                   activeSession.done = true; // Valide la session
                   stopBtn.classList.add('hidden');
+                  checkActiveDone()
                 }
                 break; // Sort de la boucle dès qu'une étape est atteinte
               }
@@ -159,6 +178,7 @@ onMounted(() => {
         progressBar.value = ""
         progressBar.max = ""
         console.log("session arrêtée")
+        checkActiveDone()
     }
     })
   //Reset de la session
@@ -168,6 +188,7 @@ onMounted(() => {
         activeSession.done = false
       }
     }
+    checkActiveDone()
   })
 })
 
@@ -230,5 +251,7 @@ table > tr > th {
   font-size: 1rem;
   width: 100%;
 }
-
+.hidden {
+  display: none;
+}
 </style>
