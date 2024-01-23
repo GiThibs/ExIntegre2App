@@ -212,7 +212,7 @@ table > tr > th {
   padding-block: .5rem;
 }
 .nextsession {
-  padding: 1rem;
+  padding-inline: 1rem;
   display: grid;
   text-align: center;
 }
