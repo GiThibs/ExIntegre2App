@@ -2,7 +2,7 @@
 
 <template>
   <div class="nextsession">
-    <h2 class="actuel">Vous en êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h2><hr>
+    <h3 class="actuel">Vous en êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3><hr>
     <section class="progress">
       <label for="progression">Progression : </label>
       <progress id="progression" max="" value=""></progress>
@@ -218,7 +218,7 @@ table > tr > th {
 }
 .progress {
   display: flex;
-  padding-block: 1rem;
+  margin-block-start: .2rem;
   justify-content: space-between;
 }
 .echauff{
