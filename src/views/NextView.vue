@@ -7,10 +7,10 @@
     <h3 class="actuel">Vous êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3><hr> <!-- Affiche les infos de la session -->
 
 
-    <section class="progress"> 
+    <section class="progress" v-show="displayProgress"> 
       <div><!-- Affiche la progression de la session sous forme de barre -->
         <label for="progression">Progression : </label>
-        <progress id="progression" max="" value=""></progress> 
+        <progress id="progression" max="" value="0"></progress> 
       </div>
       <div><!-- Affiche le temps de course et le temps de la session -->
         <p class="tempsecoule">Temps écoulé : <span class="tempsecouleval"> 0 </span> / {{ totalTimeMin.toFixed(2) }} min</p>
@@ -67,7 +67,7 @@ const saisons = planningStore.planning
 const saison = route.params.nextSaisonOrder
 const week = route.params.nextWeekOrder
 const day = route.params.nextDayOrder
-
+const displayProgress = ref(false)
 // Récupère les paramètres d'url pour aller chercher la session active dans le store
 const activeSession = saisons.find((el) => el.order == saison).semaines.find((el) => el.order == week).sceances.find((el) => el.order == day)
 const steps = activeSession.etapes
@@ -157,6 +157,7 @@ onMounted(() => {
     // Echanger les boutons Démarrer / Arrêter
     startBtn.classList.add('hidden')
     stopBtn.classList.remove('hidden')
+    displayProgress.value = true
     if (!intervalStarted) { // Si session non démarrée
           console.log("session démarrée.")
           progressBar.max = totalTime.value  // Valeur max de la barre de progression
