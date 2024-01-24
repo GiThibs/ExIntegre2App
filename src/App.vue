@@ -6,7 +6,7 @@
       </nav>
     </div>
   </header>
-  <button class="installBtn">Installer l'app ?</button>
+  <button class="installbtn">Installer l'app ?</button>
 
   <RouterView />
 </template>
@@ -61,7 +61,7 @@ const appInstalled = computed(() => {
 onMounted(() => {
 
   // Lie au bouton d'installation
-  const installer = document.querySelector('.installBtn')
+  const installer = document.querySelector('.installbtn')
   let deferredPrompts = null
   
   // Lors de la demande d'installation
@@ -107,7 +107,7 @@ onMounted(() => {
   margin-inline-end: 1rem;
   text-decoration: none;
 }
-.installBtn {
+.installbtn {
   width: 80px;
   height: 80px;
   border-radius: 80px;
@@ -120,6 +120,9 @@ onMounted(() => {
   position: fixed;
   margin-block-start: -6rem;
   margin-inline-start: 1rem;
+}
+.installbtn:hover {
+  cursor: pointer;
 }
 
 .hidden {

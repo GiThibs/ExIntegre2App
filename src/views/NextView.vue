@@ -4,35 +4,39 @@
 
   <div class="nextsession"> <!-- Englobe la session --> 
 
-    <h3 class="actuel">Vous en êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3><hr> <!-- Affiche les infos de la session -->
+    <h3 class="actuel">Vous êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3><hr> <!-- Affiche les infos de la session -->
 
-    <section class="progress"> <!-- Affiche la progression de la session sous forme de barre -->
-      <label for="progression">Progression : </label>
-      <progress id="progression" max="" value=""></progress>
+
+    <section class="progress"> 
+      <div><!-- Affiche la progression de la session sous forme de barre -->
+        <label for="progression">Progression : </label>
+        <progress id="progression" max="" value=""></progress> 
+      </div>
+      <div><!-- Affiche le temps de course et le temps de la session -->
+        <p class="tempsecoule">Temps écoulé : <span class="tempsecouleval"> 0 </span> / {{ totalTimeMin.toFixed(2) }} min</p>
+      </div>
     </section>
 
-    <section class="progress">  <!-- Affiche le temps de course et le temps de la session -->
-      <div class="tempsecoule">Temps écoulé :</div>
-      <div><span class="tempsecouleval">0</span>/{{ totalTimeMin.toFixed(2) }} min</div>
-    </section>
-
-    <div class="btns"> <!-- Boutons pour démarrer et arrêter la session -->
+    <div class="bouton"> <!-- Boutons pour démarrer et arrêter la session -->
       <button class="startbtn">Démarrer la session ?</button>
       <button class="stopbtn hidden">Arrêter la session ?</button>
     </div>
 
-    <table class="steparray"> <!-- Tableau des étapes -->
-      <tr class="row">
-        <th>Etapes</th>
-        <th>Rythme</th>
-        <th>Temps en minutes</th>
-      </tr>
-      <tr class="row" v-for="(step, key) in steps" :key="key" :index="key">
-        <th>Etape n°{{ step.order }}</th>
-        <th class="label">{{ step.label }}</th>
-        <th class="timeStep">{{ Math.round((step.time / 60) * 100) / 100 }}</th>
-      </tr>
-    </table>
+
+    <div class="tableau">
+      <table class="steparray"> <!-- Tableau des étapes -->
+        <tr class="row">
+          <th>Etapes</th>
+          <th>Rythme</th>
+          <th>Temps en minutes</th>
+        </tr>
+        <tr class="row" v-for="(step, key) in steps" :key="key" :index="key">
+          <th>Etape n°{{ step.order }}</th>
+          <th class="label">{{ step.label }}</th>
+          <th class="timeStep">{{ Math.round((step.time / 60) * 100) / 100 }}</th>
+        </tr>
+      </table>
+    </div>
 
   </div>
 
@@ -41,8 +45,9 @@
     <p>Vous avez courru pendant {{totalTimeMin}} minutes !</p>
     <p class="emoji">🏁 🏃 </p>
   </div>
-
+  <div class="bouton">
     <button class="resetbtn">Recommencer la session ?</button> <!-- Bouton pour réinitialiser la session -->
+  </div>
 
 </template>
 
@@ -228,13 +233,32 @@ onMounted(() => {
 
 <style scoped>
 
+/***  Tableau ***/
+.tableau {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  widows: 100%;
+}
 table {
   border-spacing: 0;
   margin-block: 1rem;
+  width: 100%;
 }
 table > tr > th {
   padding: .3rem;
 }
+table th:nth-child(1) {
+  width: 30%;
+}
+table th:nth-child(2) {
+  width: 40%;
+}
+table th:nth-child(3) {
+  width: 30%;
+}
+
+/***  Titre ***/
 .actuel {
   padding-block: .5rem;
 }
@@ -250,40 +274,51 @@ text-align: center;
 .emoji {
   font-size: 2rem;
 }
+
+/*** Btn start stop + progression ***/
 .progress {
   display: flex;
-  margin-block-start: .2rem;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-block: 1rem;
+  justify-content: space-evenly;
 }
+/*** B-C du tableau ***/
 .echauff{
-  background-color: teal;
+  background-color: #765432cc;
 }
 .marche {
-  background-color: aqua;
+  background-color: #76543270;
 }
 .trot {
-  background-color: cornflowerblue;
+  background-color: #76543220;
 }
 
+/*** Boutons ***/
 .startbtn {
-  padding: 1rem;
   background-color: green;
-  color: white;
-  border: none;
-  font-weight: bold;
-  text-transform: capitalize;
-  font-size: 1rem;
-  width: 100%;
 }
 .resetbtn, .stopbtn {
-  padding: 1rem;
   background-color: red;
-  color: white;
+}
+.startbtn, .stopbtn, .resetbtn {
+  padding: 1.5rem;
   border: none;
+  border-radius: 100px;
+  box-shadow: black 3px 3px;
   font-weight: bold;
   text-transform: capitalize;
   font-size: 1rem;
+  color: white;
+}
+.startbtn:hover, .stopbtn:hover, .resetbtn:hover {
+  cursor: pointer;
+}
+.bouton {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
+  justify-content: center;
 }
 .hidden {
   display: none;
