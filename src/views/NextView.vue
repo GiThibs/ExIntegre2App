@@ -33,7 +33,7 @@
         <tr class="row" v-for="(step, key) in steps" :key="key" :index="key">
           <th>Etape n°{{ step.order }}</th>
           <th class="label">{{ step.label }}</th>
-          <th class="timeStep">{{ Math.round((step.time / 60) * 100) / 100 }}</th>
+          <th class="timeStep">{{ (step.time / 60).toFixed(2) }}</th>
         </tr>
       </table>
     </div>
@@ -42,7 +42,7 @@
 
   <div class="sessiondone hidden"> <!-- Affiché si session terminée (attribut done sur true) -->
     <h2>Session terminée !</h2>
-    <p>Vous avez courru pendant {{totalTimeMin}} minutes !</p>
+    <p>Vous avez courru pendant {{totalTimeMin.toFixed(2)}} minutes !</p>
     <p class="emoji">🏁 🏃 </p>
   </div>
   <div class="bouton">
@@ -71,6 +71,20 @@ const day = route.params.nextDayOrder
 // Récupère les paramètres d'url pour aller chercher la session active dans le store
 const activeSession = saisons.find((el) => el.order == saison).semaines.find((el) => el.order == week).sceances.find((el) => el.order == day)
 const steps = activeSession.etapes
+
+  // Données à modifier pour tester le fonctionnement de la session
+
+  steps[0].time = 3
+  steps[1].time = 3
+  steps[2].time = 2
+  steps[3].time = 3
+  steps[4].time = 2
+  steps[5].time = 3
+  steps[6].time = 2
+  steps[7].time = 3
+  steps[8].time = 2
+  steps[9].time = 3
+  steps[10].time = 2
 
 // Variable pour le temps de session
 let totalTimeMin = ref(0)
@@ -135,19 +149,7 @@ onMounted(() => {
   let intervalStarted = null
   const timer = ref(0)
 
-  // Données à modifier pour tester le fonctionnement de la session
 
-  steps[0].time = 7
-  steps[1].time = 2
-  steps[2].time = 2
-  steps[3].time = 3
-  steps[4].time = 2
-  steps[5].time = 3
-  steps[6].time = 2
-  steps[7].time = 3
-  steps[8].time = 2
-  steps[9].time = 3
-  steps[10].time = 2
 
 
   //Start du timer de la session
