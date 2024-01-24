@@ -136,7 +136,7 @@ onMounted(() => {
   const timer = ref(0)
 
   // Données à modifier pour tester le fonctionnement de la session
-/*
+
   steps[0].time = 7
   steps[1].time = 2
   steps[2].time = 2
@@ -148,7 +148,7 @@ onMounted(() => {
   steps[8].time = 2
   steps[9].time = 3
   steps[10].time = 2
-*/
+
 
   //Start du timer de la session
   startBtn.addEventListener('click', e => {
