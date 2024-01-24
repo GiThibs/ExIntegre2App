@@ -5,10 +5,13 @@
 </template>
 
 <script setup>
+
+// Les imports
 import { onMounted } from 'vue';
 import { usePlanningStore } from '@/stores/planning'
 import { ref, computed } from 'vue'
 
+// Les propriétés reçues du parent
 const props = defineProps({
   sceance: {
     type: Object,
@@ -28,23 +31,18 @@ const props = defineProps({
   }
 })
 
+// Le store
 const planningStore = usePlanningStore()
 const saisons = planningStore.thePlanning
 
+// Les variables
 let nextSaison = null
 let nextWeek = null
 let nextDay = null
 const nextSess = ref({})
 const listItemRef = ref(null)
 
-const nextOne = computed(() => {
-  return (
-    nextSess.value.nextS === props.orderS &&
-    nextSess.value.nextW === props.orderW &&
-    nextSess.value.nextD === props.orderD
-  )
-})
-
+// Défini la prochaine session à faire
 const findNextSess = () => {
   nextSaison = saisons.find((el) => el.done == false)
   nextWeek = nextSaison.semaines.find((el) => el.done == false)
@@ -52,9 +50,19 @@ const findNextSess = () => {
   nextSess.value = { nextS: nextSaison.order, nextW: nextWeek.order, nextD: nextDay.order }
 }
 
+// Regarde si la session est la suivante à faire
+const nextOne = computed(() => {
+  return ( // Renvoie true si les conditions sont remplies
+    nextSess.value.nextS === props.orderS &&
+    nextSess.value.nextW === props.orderW &&
+    nextSess.value.nextD === props.orderD
+  )
+})
+
 onMounted(() => {
   findNextSess()
 })
+
 </script>
 
 <style scoped>

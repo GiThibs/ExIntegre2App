@@ -1,73 +1,89 @@
 
 
 <template>
-  <div class="nextsession">
-    <h3 class="actuel">Vous en êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3><hr>
-    <section class="progress">
+
+  <div class="nextsession"> <!-- Englobe la session --> 
+
+    <h3 class="actuel">Vous en êtes ici :<br>Saison {{ saison }} - Semaine {{ week }} - Session {{ day }}</h3><hr> <!-- Affiche les infos de la session -->
+
+    <section class="progress"> <!-- Affiche la progression de la session sous forme de barre -->
       <label for="progression">Progression : </label>
       <progress id="progression" max="" value=""></progress>
     </section>
-    <section class="progress">  
+
+    <section class="progress">  <!-- Affiche le temps de course et le temps de la session -->
       <div class="tempsecoule">Temps écoulé :</div>
       <div><span class="tempsecouleval">0</span>/{{ totalTimeMin.toFixed(2) }} min</div>
     </section>
-    <div class="btns">
+
+    <div class="btns"> <!-- Boutons pour démarrer et arrêter la session -->
       <button class="startbtn">Démarrer la session ?</button>
       <button class="stopbtn hidden">Arrêter la session ?</button>
     </div>
-      <table class="steparray">
-        <tr class="row">
-          <th>Etapes</th>
-          <th>Rythme</th>
-          <th>Temps en minutes</th>
-        </tr>
-        <tr class="row" v-for="(step, key) in steps" :key="key" :index="key">
-          <th>Etape n°{{ step.order }}</th>
-          <th class="label">{{ step.label }}</th>
-          <th class="timeStep">{{ Math.round((step.time / 60) * 100) / 100 }}</th>
-        </tr>
-      </table>
-      <!--<audio controls :src="srcSound"></audio>-->
+
+    <table class="steparray"> <!-- Tableau des étapes -->
+      <tr class="row">
+        <th>Etapes</th>
+        <th>Rythme</th>
+        <th>Temps en minutes</th>
+      </tr>
+      <tr class="row" v-for="(step, key) in steps" :key="key" :index="key">
+        <th>Etape n°{{ step.order }}</th>
+        <th class="label">{{ step.label }}</th>
+        <th class="timeStep">{{ Math.round((step.time / 60) * 100) / 100 }}</th>
+      </tr>
+    </table>
+
   </div>
-  <div class="sessiondone hidden">
+
+  <div class="sessiondone hidden"> <!-- Affiché si session terminée (attribut done sur true) -->
     <h2>Session terminée !</h2>
     <p>Vous avez courru pendant {{totalTimeMin}} minutes !</p>
     <p class="emoji">🏁 🏃 </p>
   </div>
-    <button class="resetbtn">Recommencer la session ?</button>
+
+    <button class="resetbtn">Recommencer la session ?</button> <!-- Bouton pour réinitialiser la session -->
+
 </template>
 
 
 <script setup>
+// Les imports
 import { useRoute } from 'vue-router'
 import { usePlanningStore } from '@/stores/planning'
 import { onMounted, ref } from 'vue';
 
+// Le store
 const route = useRoute()
 const planningStore = usePlanningStore()
 const saisons = planningStore.planning
 
+// Les variables (paramètres d'url)
 const saison = route.params.nextSaisonOrder
 const week = route.params.nextWeekOrder
 const day = route.params.nextDayOrder
 
+// Récupère les paramètres d'url pour aller chercher la session active dans le store
 const activeSession = saisons.find((el) => el.order == saison).semaines.find((el) => el.order == week).sceances.find((el) => el.order == day)
 const steps = activeSession.etapes
 
+// Variable pour le temps de session
 let totalTimeMin = ref(0)
 let totalTime = ref(0)
 
+// Défini l'url de base
 const basePath = window.location.href.replace(window.location.pathname, '');
-// const srcSound = basePath + '/sounds/marches.mp3'
+// Récupère les fichiers audio grâce à l'url de base
 const mp3Echauffements = new Audio(basePath+'/sounds/echauffement.mp3')
 const mp3Etirements = new Audio(basePath+'/sounds/etirements.mp3')
 const mp3Trottes = new Audio(basePath+'/sounds/trottes.mp3')
 const mp3Marches = new Audio(basePath+'/sounds/marches.mp3')
 const mp3Fin = new Audio(basePath+'/sounds/fin.mp3')
 
+
 onMounted(() => {
 
-  //Background color from class by innerHTML Txt
+  // Applique une couleur de fond au tableau selon le texte HTML
   const labels = document.querySelectorAll('.label')
   labels.forEach((el) => {
     if (el.innerHTML == 'Échauffements') {
@@ -80,13 +96,15 @@ onMounted(() => {
       el.classList.add('echauff')
     }
   })
-  //Get session total time
+
+  // Récupère le temps total de la session
   const allTime = document.querySelectorAll('.timeStep')
   allTime.forEach((el) => {
-    totalTimeMin.value = totalTimeMin.value + Number.parseFloat(el.innerHTML)
+    totalTimeMin.value = totalTimeMin.value + Number.parseFloat(el.innerHTML) // Converti le texte en nombre
   })
   totalTime.value = totalTimeMin.value * 60 // Temps total en secondes
-  //Cible Eléments HTML
+
+  // Cible Eléments HTML
   const startBtn = document.querySelector('.startbtn')
   const stopBtn = document.querySelector('.stopbtn')
   const resetBtn = document.querySelector('.resetbtn')
@@ -95,6 +113,7 @@ onMounted(() => {
   const nextSession = document.querySelector('.nextsession')
   const sessionDone = document.querySelector('.sessiondone')
 
+  // Vérifie si la session est déjà terminée
   const checkActiveDone = () => {
     if(activeSession.done == true) {
     nextSession.classList.add('hidden')
@@ -106,9 +125,12 @@ onMounted(() => {
     }
   }
   checkActiveDone()
-  //SetInterval
+
+  // SetInterval
   let intervalStarted = null
   const timer = ref(0)
+
+  // Données à modifier pour tester le fonctionnement de la session
 /*
   steps[0].time = 7
   steps[1].time = 2
@@ -122,35 +144,35 @@ onMounted(() => {
   steps[9].time = 3
   steps[10].time = 2
 */
+
   //Start du timer de la session
   startBtn.addEventListener('click', e => {
+    // Echanger les boutons Démarrer / Arrêter
     startBtn.classList.add('hidden')
     stopBtn.classList.remove('hidden')
-    if (!intervalStarted) { //Si session non démarrée
+    if (!intervalStarted) { // Si session non démarrée
           console.log("session démarrée.")
-          progressBar.max = totalTime.value  //Valeur max de la barre de progression
-
-          mp3Echauffements.play()
-
+          progressBar.max = totalTime.value  // Valeur max de la barre de progression
+          mp3Echauffements.play() // Lance le son "Echauffements"
           intervalStarted = setInterval(() => {
             timer.value++ // Incrémente le timer de 1 chaque sec
             progressBar.value = timer.value // La value de la progressBar = value timer
-            tempsEcoule.innerHTML = Math.round((timer.value / 60) * 100) / 100 //Temps en min arrondi
+            tempsEcoule.innerHTML = (timer.value / 60).toFixed(2) //Temps en min arrondi
             console.log(timer.value)
-            let totalElapsedTime = 0;
+            let totalElapsedTime = 0; // Temps total passé (Augmente à chaque étape finie)
             for (let i = 0; i < steps.length; i++) {
               totalElapsedTime += steps[i].time;
-              if (timer.value === totalElapsedTime) {
-                if(i != steps.length - 1) {
-                  if(steps[i+1].label == "Trot") {
+              if (timer.value === totalElapsedTime) { // Si le timer de l'étape == temps passé
+                if(i != steps.length - 1) { // Si ce n'est pas la dernière étape
+                  if(steps[i+1].label == "Trot") { // Si la prochaine étape est : Trot
                     console.log(steps[i+1].label);
-                    mp3Trottes.play(); // Joue un son
-                  } else if(steps[i+1].label == "Marche") {
+                    mp3Trottes.play(); // Joue le son
+                  } else if(steps[i+1].label == "Marche") { // Si la prochaine étape est : Marche
                     console.log(steps[i+1].label);
-                    mp3Marches.play(); // Joue un son
-                  } else if(steps[i+1].label == "Étirements") {
+                    mp3Marches.play(); // Joue le son
+                  } else if(steps[i+1].label == "Étirements") { // Si la prochaine étape est : Etirements
                     console.log(steps[i+1].label);
-                    mp3Etirements.play(); // Joue un son
+                    mp3Etirements.play(); // Joue le son
                   }
                 }
                 if (i === steps.length - 1) { // Si c'est la dernière étape
@@ -162,15 +184,16 @@ onMounted(() => {
                   stopBtn.classList.add('hidden');
                   checkActiveDone()
                 }
-                break; // Sort de la boucle dès qu'une étape est atteinte
+                break;
               }
             }
           }, 1000);
           }
     })
-  //Stop du timer de la session
+
+  // Stop du timer de la session
   stopBtn.addEventListener('click', e => {
-    if(confirm('Voulez vous vraiment arrêter la session ? Vous devrez la recommencer du début !')) {
+    if(confirm('Voulez vous vraiment arrêter la session ? Vous devrez la recommencer du début !')) { // Demande confirmation à l'utilisateur
       stopBtn.classList.add('hidden')
       startBtn.classList.remove('hidden')
         clearInterval(intervalStarted) // Arrête le SetInterval
@@ -183,13 +206,15 @@ onMounted(() => {
         checkActiveDone()
     }
     })
-  //Reset de la session
+  // Reset de la session
   resetBtn.addEventListener('click', e => {
-    if (activeSession.done) {
+    if (activeSession.done) { // Si la session est terminée
       if (confirm('Voulez vous vraiment réinitialiser cette session ? Elle ne sera plus considérée comme terminée !')) {
-        activeSession.done = false
+        activeSession.done = false // La réinitialise
+      } 
+    } else { // Si session non terminée
+        alert("Vous n'avez pas encore fait cette session.")
       }
-    }
     checkActiveDone()
   })
 })

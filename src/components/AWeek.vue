@@ -8,8 +8,11 @@
 </template>
 
 <script setup>
+
+// Les imports
 import ADay from '@/components/ADay.vue';
 
+// Les propriétés reçues du parent
 const props = defineProps({
   semaine : {
     type : Object,
@@ -24,13 +27,6 @@ const props = defineProps({
     default : null
   }
 })
-
-/*
-const emit = defineEmits(['cancel'])
-const reset = (key) => {
-    emit('cancel', key)
-}
-*/
 
 </script>
 

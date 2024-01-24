@@ -10,9 +10,11 @@
 </template>
 
 <script setup>
+
+// Les imports
 import AWeek from '@/components/AWeek.vue';
 
-
+// Les propriétés reçues du parent
 const props = defineProps({
   saison : {
     type : Object,
@@ -23,13 +25,6 @@ const props = defineProps({
     default : null
   }
 })
-
-/*
-const emit = defineEmits(['cancel'])
-const reset = (key) => {
-    emit('cancel', key)
-}
-*/
 
 </script>
 

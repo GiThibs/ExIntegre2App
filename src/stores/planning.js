@@ -5,6 +5,7 @@ export const usePlanningStore = defineStore({
 
   id : "planning",
 
+  //Bibliothèque de données
   state : () => ({
     planning : [{
       id : 1,
@@ -3350,6 +3351,7 @@ export const usePlanningStore = defineStore({
     }]
   }),
 
+  // Liste des getters (Pas tous utilisés)
   getters : {
     thePlanning : (state) => {
       return state.planning

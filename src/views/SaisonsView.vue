@@ -6,16 +6,16 @@
 
 
 <script setup>
+
+// Les imports
 import ASeason from '@/components/ASeason.vue';
 import { usePlanningStore } from '@/stores/planning'
 
+// Le store
 const planningStore = usePlanningStore()
 const saisons = planningStore.planning
 
-
-
 </script>
-
 
 <style scoped>
 .monplanning {
